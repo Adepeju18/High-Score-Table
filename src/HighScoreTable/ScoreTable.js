@@ -13,7 +13,18 @@ const ScoreTable = (props) => {
             <table className="table">
                
                 <tbody>
-                    {country.scores.map((score, index) => {
+                    {country.scores.sort((scoreA, scoreB) => {
+
+                        if (scoreA.s > scoreB.s) {
+                            return -1
+
+                        } else if (scoreA.s< scoreB.s) {
+                            return 1
+
+                        }
+                        else return 0
+                    })
+                    .map((score, index) => {
                         
                         return (<tr key={index}><td>{score.n}</td>
                             <td>{score.s}</td>
